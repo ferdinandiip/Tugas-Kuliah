@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container::before {
+        content: "ini adalah pseudo element";
+        display: block;
+        background-color: aqua;
+        margin: 0 auto;
+        padding: 10px;
+        font-family: sans-serif;
+      }
+      h2 + p {
+        color: brown;
+        font-weight: lighter;
+      }
+      h2 ~ p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ini heading 2</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur<br />
+        tempora obcaecati, voluptates illo quae vitae alias laborum corporis<br />
+        natus, quaerat molestias. Magni assumenda qui suscipit optio rerum<br />
+        tempora autem odit!
+      </p>
+      <hr />
+      <h3>ini heading h3</h3>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque illum<br />
+        excepturi animi! Illo ad nam pariatur ea nobis perspiciatis assumenda<br />
+        quam aspernatur dolores laudantium. Itaque pariatur nobis adipisci<br />
+        repudiandae magnam?
+      </p>
+      <hr />
+      <h4>heading ukuran 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+        deleniti<br />
+        eligendi corrupti, minima blanditiis impedit consequatur repudiandae<br />
+        quibusdam a maiores veniam dolorem, tenetur explicabo labore possimus<br />
+        tempore ipsum mollitia odio.
+      </p>
+    </div>
+  </body>
+</html>
