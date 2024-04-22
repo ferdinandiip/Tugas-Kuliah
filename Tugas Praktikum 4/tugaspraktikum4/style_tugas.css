@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 150vh;
+    width: 100%;
+    background-color: #babec3;
+    display: grid;
+    grid-template-areas: 
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu main main main main main'
+    'menu footer footer footer footer footer';
+}   
+
+/* Sidebar */
+.sidebar {
+    grid-area: menu;
+    width: 120px; 
+    background: rgb(0,0,0);
+    background: linear-gradient(to bottom, #4b4276, #4b4276 70%, rgba(255, 0, 0, 0.581)); 
+    display: flex;
+    align-items: center;
+}
+
+.sidebar nav {
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    list-style-type: none;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar nav ul li a {
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: x-large;
+    text-decoration: none;
+    color: rgb(251, 251, 251);
+    padding: 10px 10px;
+}
+
+.sidebar ul li a:hover 
+{
+    background-color: #332a60;
+}
+
+/* end Of sidebar */
+
+/* content */
+.content {
+    grid-area: main;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.content .hero h1 {
+    color: rgb(75, 0, 75);
+    font-weight: lighter;
+    font-size: 70px;
+}
+
+.content .hero h2 {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.content .hero .hero-content p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px; /* Mengubah nilai font-size */
+    text-align: justify;
+    width: 75%;
+}
+
+.content .hero .action-btn {
+    background-color: #383160;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.content .hero .action-btn:hover 
+{
+    background-color: #333;
+}
+
+.content .hero img {
+    text-align: center;
+}
+
+.content .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+/* end content */
+
+/* Start Footer */
+.footer {
+    position: relative;
+    background-color: black;
+    grid-area: footer;
+    background-color: black;
+}
+
+.footer footer ul {
+    position: absolute;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    top: 25%;
+}
+
+.footer footer ul li {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}   
+
+.footer footer ul li a {
+    display: block;
+    text-align: center;
+    justify-content: center;
+}       
+/* End Of Footer */
+
+@media only screen and (max-width: 768px) {
+    .container {
+        height: 180vh;
+        width: 100%;
+        background-color: #babec3;
+        display: grid;
+        grid-template-areas: 
+        'menu'
+        'main'
+        'footer';
+    }
+
+    .container .sidebar {
+        position: relative;
+        grid-area: menu;
+        max-height: 150px;
+        width: 100%; 
+        background: rgb(0,0,0);
+        background: linear-gradient(to bottom, #4b4276, #4b4276 70%, rgba(255, 0, 0, 0.581)); 
+        margin-bottom: 0px;
+    }
+
+    .container .sidebar nav {
+        position: absolute;
+    }
+
+    .container .sidebar nav ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    .container .sidebar nav ul li {
+        margin-bottom: 0px;
+    }
+
+    .sidebar nav ul li a {
+        margin-bottom: 0px;
+        padding: 0px 0px;
+        font-size: xx-large;
+    }
+
+    /* content */
+    .content {
+        grid-area: main;
+        margin: 0px 0px 0px 0px;
+    }
+
+    .content .hero {
+        display: block;
+        text-align: center;
+    }
+
+    .content .hero img {
+        position: relative;
+        text-align: center;
+        width: 500px;
+        height: 120px;
+        left: 80px;
+        top: -145px;
+    }
+
+    .content .hero .hero-content {
+        text-align: center;
+    }
+
+    .content .hero h1 {
+        color: rgb(75, 0, 75);
+        font-weight: lighter;
+        font-size: 60px;
+    }
+
+    .content .hero h2 {
+        font-weight: bold;
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+
+    .content .hero .hero-content p {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 25px; /* Mengubah nilai font-size */
+        width: 100%;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .content .hero .action-btn {
+        background-color: #383160;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        margin-top: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+
+    .content .hero .action-btn:hover 
+    {
+        background-color: #333;
+    }
+
+    /* Start Footer */
+    .footer {
+        position: relative;
+        background-color: black;
+        grid-area: footer;
+        background-color: black;
+    }
+
+    .footer footer ul {
+        position: absolute;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        top: 25%;
+    }
+
+    .footer footer ul li {
+        display: block;
+        text-align: center;
+        justify-content: center;
+        font-size: 20px;
+        color: white;
+    }   
+
+    .footer footer ul li a {
+        display: block;
+        text-align: center;
+        justify-content: center;
+    }       
+    /* End Of Footer */
+}
