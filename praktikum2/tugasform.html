@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form Validation</title>
+    <style>
+      .error {
+        color: red;
+        width: 300px;
+        text-align: center;
+        padding: 2px 10px;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Belajar Javascript: Form Validation</h1>
+    <form id="formKu" name="formKu" method="get" action="proses.php">
+      <p>
+        Nama: <input type="text" name="nama" id="nama" />
+        <span id="namaSpan"></span>
+      </p>
+      <p>
+        Username: <input type="text" name="username" id="username" />
+        <span id="usernameSpan"></span>
+      </p>
+      <p>
+        No. Telepon: <input type="text" name="telepon" id="telepon" />
+        <span id="teleponSpan"></span>
+      </p>
+      <p>
+        Jenis Kelamin:
+        <select name="jenis_kelamin" id="jenis_kelamin">
+          <option value="">Pilih Jenis Kelamin</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
+        <span id="jenisKelaminSpan"></span>
+      </p>
+      <p>
+        Alamat Website: <input type="text" name="website" id="website" />
+        <span id="websiteSpan"></span>
+      </p>
+      <p>
+        Email: <input type="text" name="email" id="email" />
+        <span id="emailSpan"></span>
+      </p>
+      <p>
+        <input type="submit" name="submit" id="submit" value="Kirim Data" />
+      </p>
+    </form>
+    <script>
+      let formKuNode = document.getElementById("formKu");
+
+      let namaNode = document.getElementById("nama");
+      let namaSpanNode = document.getElementById("namaSpan");
+
+      let usernameNode = document.getElementById("username");
+      let usernameSpanNode = document.getElementById("usernameSpan");
+
+      let teleponNode = document.getElementById("telepon");
+      let teleponSpanNode = document.getElementById("teleponSpan");
+
+      let jenisKelaminNode = document.getElementById("jenis_kelamin");
+      let jenisKelaminSpanNode = document.getElementById("jenisKelaminSpan");
+
+      let websiteNode = document.getElementById("website");
+      let websiteSpanNode = document.getElementById("websiteSpan");
+
+      let emailNode = document.getElementById("email");
+      let emailSpanNode = document.getElementById("emailSpan");
+
+      const diProses = (e) => {
+        //===== Validasi Nama ==== //
+        let namaError = "";
+
+        if (namaNode.value.trim() === "") {
+          namaError = "Nama harus diisi";
+        }
+
+        if (namaError !== "") {
+          namaSpanNode.innerHTML = namaError;
+          namaSpanNode.className = "error";
+          namaNode.style.border = "2px solid red";
+          e.preventDefault();
+        }
+
+        //===== Validasi Username ==== //
+        let usernameError = "";
+
+        if (usernameNode.value.trim() === "") {
+          usernameError = "Username harus diisi";
+        } else if (/\W/.test(usernameNode.value.trim())) {
+          usernameError = "Hanya bisa diisi karakter alfanumerik";
+        } else if (usernameNode.value.trim().length < 6) {
+          usernameError = "Username minimal 6 karakter";
+        }
+
+        if (usernameError !== "") {
+          usernameSpanNode.innerHTML = usernameError;
+          usernameSpanNode.className = "error";
+          usernameNode.style.border = "2px solid red";
+          e.preventDefault();
+        }
+
+        //===== Validasi No. Telepon ==== //
+        let teleponError = "";
+
+        if (teleponNode.value.trim() === "") {
+          teleponError = "Nomor telepon harus diisi";
+        } else if (!/^\d+$/.test(teleponNode.value.trim())) {
+          teleponError = "Nomor telepon hanya boleh angka";
+        }
+
+        if (teleponError !== "") {
+          teleponSpanNode.innerHTML = teleponError;
+          teleponSpanNode.className = "error";
+          teleponNode.style.border = "2px solid red";
+          e.preventDefault();
+        }
+
+        //===== Validasi Jenis Kelamin ==== //
+        let jenisKelaminError = "";
+
+        if (jenisKelaminNode.value === "") {
+          jenisKelaminError = "Jenis kelamin harus dipilih";
+        }
+
+        if (jenisKelaminError !== "") {
+          jenisKelaminSpanNode.innerHTML = jenisKelaminError;
+          jenisKelaminSpanNode.className = "error";
+          e.preventDefault();
+        }
+
+        //===== Validasi Alamat Website ==== //
+        let websiteError = "";
+
+        if (websiteNode.value.trim() === "") {
+          websiteError = "Alamat website harus diisi";
+        } else if (!/^https?:\/\/.+/.test(websiteNode.value.trim())) {
+          websiteError = "Alamat website tidak valid";
+        }
+
+        if (websiteError !== "") {
+          websiteSpanNode.innerHTML = websiteError;
+          websiteSpanNode.className = "error";
+          websiteNode.style.border = "2px solid red";
+          e.preventDefault();
+        }
+
+        //===== Validasi Email ==== //
+        let emailError = "";
+
+        if (emailNode.value.trim() === "") {
+          emailError = "Email harus diisi";
+        } else if (
+          !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailNode.value.trim())
+        ) {
+          emailError = "Email tidak valid";
+        }
+
+        if (emailError !== "") {
+          emailSpanNode.innerHTML = emailError;
+          emailSpanNode.className = "error";
+          emailNode.style.border = "2px solid red";
+          e.preventDefault();
+        }
+      };
+
+      const hapusError = (e) => {
+        e.target.style.border = "";
+        e.target.parentElement.lastElementChild.innerHTML = "";
+      };
+
+      formKuNode.addEventListener("submit", diProses);
+      namaNode.addEventListener("focus", hapusError);
+      usernameNode.addEventListener("focus", hapusError);
+      teleponNode.addEventListener("focus", hapusError);
+      jenisKelaminNode.addEventListener("focus", hapusError);
+      websiteNode.addEventListener("focus", hapusError);
+      emailNode.addEventListener("focus", hapusError);
+    </script>
+  </body>
+</html>

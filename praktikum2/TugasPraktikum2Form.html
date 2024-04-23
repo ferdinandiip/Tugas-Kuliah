@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Form Registrasi</h1>
+    <form action="">
+      <fieldset>
+        <legend>Biodata</legend>
+        <table>
+          <tr style="vertical-align: top">
+            <td>
+              <label for="NamaMahasiswa">Nama Mahasiswa </label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="text"
+                id="NMahasiswa"
+                name="NMahasiswa"
+                placeholder="Nama Anda"
+              /><br /><br />
+            </td>
+          </tr>
+          <tr style="vertical-align: top">
+            <td>
+              <label for="NIM">NIM</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="text"
+                id="NIM"
+                name="NIM"
+                placeholder="1203220138"
+              /><br /><br />
+            </td>
+          </tr>
+          <tr style="vertical-align: top">
+            <td>
+              <label for="Alamat">Alamat Mahasiswa</label>
+            </td>
+            <td>:</td>
+            <td>
+              <textarea name="Alamat" id="Alamat" cols="30" rows="5"></textarea>
+            </td>
+          </tr>
+
+          <tr style="vertical-align: top">
+            <td>
+              <label for="tgl_lahir">Tanggal Lahir</label>
+            </td>
+            <td>:</td>
+            <td>
+              <span>
+                <select name="month" id="month" onchange="updateDays()">
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+              </span>
+              <span>
+                <select name="day" id="day">
+                  <!-- Hari akan diisi otomatis melalui JavaScript -->
+                </select>
+              </span>
+              <span>
+                <select name="year" id="year" onchange="updateDays()">
+                  <option value="2030">2030</option>
+                  <option value="2029">2029</option>
+                  <option value="2028">2028</option>
+                  <option value="2027">2027</option>
+                  <option value="2026">2026</option>
+                  <option value="2025">2025</option>
+                  <option value="2024">2024</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                  <option value="2016">2016</option>
+                  <option value="2015">2015</option>
+                  <option value="2014">2014</option>
+                  <option value="2013">2013</option>
+                  <option value="2012">2012</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                  <option value="2016">2016</option>
+                  <option value="2015">2015</option>
+                  <option value="2014">2014</option>
+                  <option value="2013">2013</option>
+                  <option value="2012">2012</option>
+                  <option value="2011">2011</option>
+                  <option value="2010">2010</option>
+                  <option value="2009">2009</option>
+                  <option value="2008">2008</option>
+                  <option value="2007">2007</option>
+                  <option value="2006">2006</option>
+                  <option value="2005">2005</option>
+                  <option value="2004">2004</option>
+                  <option value="2003">2003</option>
+                  <option value="2002">2002</option>
+                  <option value="2001">2001</option>
+                  <option value="2000">2000</option>
+                  <option value="1999">1999</option>
+                  <option value="1998">1998</option>
+                  <option value="1997">1997</option>
+                  <option value="1996">1996</option>
+                  <option value="1995">1995</option>
+                  <option value="1994">1994</option>
+                  <option value="1993">1993</option>
+                  <option value="1992">1992</option>
+                  <option value="1991">1991</option>
+                  <option value="1990">1990</option>
+                </select>
+              </span>
+            </td>
+          </tr>
+
+          <tr style="vertical-align: top">
+            <td>
+              <label for="j_kel">Jenis kelamin</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input type="radio" name="radio" value="m" />
+              <label for="m">Pria</label>
+
+              <input type="radio" name="radio" value="f" />
+              <label for="f">Wanita</label>
+            </td>
+          </tr>
+
+          <tr style="vertical-align: top">
+            <td>
+              <label for="avatar">Upload Foto</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="file"
+                id="avatar"
+                name="avatar"
+                accept="image/png, image/jpeg"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="">URL Website</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="text"
+                name="url"
+                id="url"
+                placeholder="URL Website..."
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="">Perguruan Tinggi</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="text"
+                name="Univ"
+                id="Univ"
+                placeholder="Universitas..."
+              />
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+
+      <fieldset>
+        <legend>Info Akun</legend>
+        <table>
+          <tr>
+            <td>
+              <label for="">Email</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Masukan Alamat Email"
+              />
+            </td>
+          </tr>
+          <tr>
+            
+            <script>
+        function updateDays() {
+          var monthSelect = document.getElementById("month");
+          var daySelect = document.getElementById("day");
+          var yearSelect = document.getElementById("year");
+
+          var selectedMonth = monthSelect.value;
+          var selectedYear = yearSelect.value;
+
+          // Hapus semua opsi hari
+          daySelect.innerHTML = "";
+
+          // Hitung jumlah hari sesuai bulan dan tahun
+          var daysInMonth;
+
+          if (selectedMonth === "02") {
+            // Handle bulan Februari dengan 29 hari pada tahun kabisat
+            daysInMonth =
+              new Date(selectedYear, selectedMonth, 0).getDate() === 29
+                ? 29
+                : 28;
+          } else if (
+            selectedMonth === "01" ||
+            selectedMonth === "03" ||
+            selectedMonth === "05" ||
+            selectedMonth === "07" ||
+            selectedMonth === "08" ||
+            selectedMonth === "10" ||
+            selectedMonth === "12"
+          ) {
+            // Bulan dengan 31 hari
+            daysInMonth = 31;
+          } else {
+            // Bulan dengan 30 hari
+            daysInMonth = 30;
+          }
+
+          // Tambahkan opsi hari
+          for (var i = 1; i <= daysInMonth; i++) {
+            var option = document.createElement("option");
+            option.value = ("0" + i).slice(-2); // Format dua digit
+            option.text = i;
+            daySelect.add(option);
+          }
+        }
+
+        // Panggil updateDays saat halaman dimuat
+        window.onload = updateDays;
+      </script>
+    </form>
+            <td>
+              <label for="">Username</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="text"
+                name="Username"
+                id="Username"
+                placeholder="Masukan Username"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="">Password</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="password"
+                name="pass"
+                id="pass"
+                placeholder="Masukan Password"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="">Ulangi Password</label>
+            </td>
+            <td>:</td>
+            <td>
+              <input
+                type="password"
+                name="pass"
+                id="pass"
+                placeholder="Masukan Ulang Password"
+              />
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>Kemampuan Dasar</legend>
+
+        <input type="checkbox" name="html" id="html" value="html" />
+        <label for="html">HTML</label>
+
+        <input type="checkbox" name="css" id="css" value="css" />
+        <label for="css">CSS</label>
+
+        <input
+          type="checkbox"
+          name="javascript"
+          id="javascript"
+          value="javascript"
+        />
+        <label for="javascript">JavaScript</label>
+
+        <input type="checkbox" name="php" id="php" value="php" />
+        <label for="php">PHP</label>
+
+        <input type="checkbox" name="mysql" id="mysql" value="mysql" />
+        <label for="mysql">MySQL</label>
+
+        <input type="checkbox" name="laravel" id="laravel" value="laravel" />
+        <label for="laravel">Laravel</label>
+
+        <input type="checkbox" name="reactN" id="reactN" value="reactN" />
+        <label for="reactN">React Native</label>
+      </fieldset>
+
+      <p>
+        <input type="reset" value="Reset" />
+        <input type="submit" value="Simpan" />
+        <input type="button" value="Button" onclick="" />
+      </p>
+    </form>
+  </body>
+</html>

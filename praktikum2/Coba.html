@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Registrasi</title>
+  </head>
+
+  <body>
+    <h1>Form Registrasi</h1>
+    <form action="">
+      <fieldset>
+        <legend>Biodata</legend>
+
+        <!-- ... (bagian lain dari formulir) ... -->
+
+        <tr style="vertical-align: top">
+          <td>
+            <label for="tgl_lahir">Tanggal Lahir</label>
+          </td>
+          <td>:</td>
+          <td>
+            <span>
+              <select name="month" id="month" onchange="updateDays()">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </span>
+            <span>
+              <select name="day" id="day">
+                <!-- Hari akan diisi otomatis melalui JavaScript -->
+              </select>
+            </span>
+            <span>
+              <select name="year" id="year" onchange="updateDays()">
+                <option value="2030">2030</option>
+                <option value="2029">2029</option>
+                <option value="2028">2028</option>
+                <option value="2027">2027</option>
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+              </select>
+            </span>
+          </td>
+        </tr>
+
+        <!-- ... (bagian lain dari formulir) ... -->
+      </fieldset>
+
+      <!-- ... (fieldset dan bagian lainnya) ... -->
+
+      <script>
+        function updateDays() {
+          var monthSelect = document.getElementById("month");
+          var daySelect = document.getElementById("day");
+          var yearSelect = document.getElementById("year");
+
+          var selectedMonth = monthSelect.value;
+          var selectedYear = yearSelect.value;
+
+          // Hapus semua opsi hari
+          daySelect.innerHTML = "";
+
+          // Hitung jumlah hari sesuai bulan dan tahun
+          var daysInMonth;
+
+          if (selectedMonth === "02") {
+            // Handle bulan Februari dengan 29 hari
+            daysInMonth = 29;
+          } else {
+            // Gunakan metode biasa untuk bulan lainnya
+            daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
+          }
+
+          // Tambahkan opsi hari
+          for (var i = 1; i <= daysInMonth; i++) {
+            var option = document.createElement("option");
+            option.value = ("0" + i).slice(-2); // Format dua digit
+            option.text = i;
+            daySelect.add(option);
+          }
+        }
+
+        // Panggil updateDays saat halaman dimuat
+        window.onload = updateDays;
+      </script>
+    </form>
+  </body>
+</html>
